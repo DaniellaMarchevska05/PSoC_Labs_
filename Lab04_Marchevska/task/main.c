@@ -135,6 +135,10 @@ static void displayValue(uint8_t btn, uint8_t mode)
             SW_Tx_UART_PutChar('0' + btn);
             SW_Tx_UART_PutString("\r\n");
         }
+        else if(btn == 10) // *
+        {
+            FourDigit74HC595_sendOneDigit(0, 10, 0); // 10 = '-' (0xBF)
+        }
     }
     else // букви
     {
